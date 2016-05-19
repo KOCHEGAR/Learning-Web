@@ -1,0 +1,456 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+
+@import "compass/reset";
+
+html {
+    height: 100%;
+}
+
+body {
+    height: 100%;
+    font: 14px/18px "Times New Roman", Times, serif;
+    background-color: #FFF;
+    min-width: 940px;
+}
+
+* {
+    outline: none;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+a, a:hover {
+    text-decoration: none;
+}
+
+.clearfix:before, .clearfix:after {
+    content: " ";
+    display: table;
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+.left {float: left;}
+.right {float: right;}
+.text-align-r{text-align: right;}
+.text-align-l{text-align: left;}
+
+// начинается мой код
+$s-stack: "Times New Roman", Times, serif;
+$ss-stack: Arial, Helvetica, sans-serif;
+
+@mixin border-radius($args){
+    -webkit-border-radius: $args;
+       -moz-border-radius: $args;
+            border-radius: $args;
+}
+
+
+
+.container {
+    width: 940px;
+    margin: 0 auto;
+}
+
+#header {
+    position: absolute;
+    width: 100%;
+    padding: 20px 0;
+}
+
+
+
+.nav {
+    padding-top: 7px;
+
+    li {
+        float: left;
+        margin-right: 40px;
+
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+
+    a {
+        color: #fff;
+        font-family: $ss-stack;
+        text-transform: uppercase;
+        &:hover {
+            color: #fed136;
+        }
+    }
+}
+
+#home {
+    height: 700px;
+    background: #222 url(../images/home-bg.jpg) no-repeat center bottom;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    padding-top: 270px;
+    text-align: center;
+    color: #fff;
+
+    h3 {
+        font: 40px / 40px $ss-stack;
+        margin-bottom: 40px;
+    }
+
+    h1 {
+        text-transform: uppercase;
+        font: 75px / 75px $ss-stack;
+        margin-bottom: 50px; 
+    }
+}
+
+.btn {
+    font: bold 24px / 24px $ss-stack;
+    background-color: #fed136;
+    color: #fff;
+    padding: 20px 30px;
+    display: inline-block;
+    text-transform: uppercase;
+    border: none;
+    cursor: pointer;
+    @include border-radius(3px);
+
+    &:hover{
+        background-color: #ebae33;
+        color:#fff;
+    }
+}
+
+.services, .portfolio, .about, .our-amazing-team, .contact {
+    text-align: center;
+}
+
+.content-box {
+    padding: 110px 0;
+}
+
+h2.title {
+    text-transform: uppercase;
+    font: bold 40px/40px $ss-stack;
+    margin-bottom: 10px;
+    color: #222;
+}
+
+h5.title {
+    margin-bottom: 10px;
+    font: bold 18px/18px $ss-stack;
+    color: #222;
+}
+.descr {
+    font-size: 16px;
+    color: #777;
+}
+
+.services-wrap, .portfolio-wrap, .about-wrap, .team-wrap {
+    margin-top: 80px;
+}
+
+.service-item {
+    float: left;    
+    width: 33.33%;
+    padding: 96px 10px 0;
+
+     p {
+        font-size: 18px;
+        line-height: 1.3em;
+        color: #777;
+    }
+}
+
+$setup: no-repeat center top;
+.commerce {
+   background: url(../images/e-commerce-logo.png) $setup;
+}
+
+.responsive {
+    background: url(../images/responsive-web-logo.png) $setup;
+}
+
+.security {
+    background: url(../images/web-security-logo.png) $setup;
+}
+
+
+.portfolio {
+    background-color: #f7f7f7;
+
+    &-item{
+        float: left;
+        width: 31%;
+        margin-right: 3.5%;
+        margin-bottom: 50px;
+        background: #fff; 
+
+        &:nth-child(3n) {
+            margin-right: 0;
+        }
+        
+        &:nth-last-child(1), &:nth-last-child(2), &:nth-last-child(3) {
+            margin-bottom: 0;
+        }
+    }
+}
+.item-descr {
+    padding: 20px 20px 22px;
+
+    h5.title {
+        margin-bottom: 3px;
+    }
+
+    span {
+        font-size: 14px;
+        color: #737373;
+    }
+}
+
+.about-text {
+    width: 35%;
+    
+    h5{
+        line-height: 24px;
+    }
+
+    span {
+        text-transform: uppercase;
+    }
+
+    p {
+        font-size: 16px;
+        color: #777;
+        line-height: 24px;
+    }
+ }
+.about-img {
+    width: 30%;
+
+    &:after {
+        content: ' ';
+        display: block;
+        margin: 0 auto;
+        height: 94px;
+        width: 3px;
+        background: #f1f1f1;
+    }
+}
+
+.about-img img, .about-link {
+    width: 176px;
+    height: 176px;
+    border: 7px solid #f1f1f1;
+    display: inline-block;
+    @include border-radius(50%); 
+}
+
+.about-link {
+    background: #fed136;
+    font: bold 18px/28px $ss-stack;
+    color: #fff;
+    padding-top: 30px;
+    padding-left: 3px;
+    text-transform: uppercase;
+    text-align: center;
+    text-shadow: 0 1px rgba(0,0,0, .3);
+}
+
+.our-amazing-team {
+    background: #f7f7f7;
+}
+.team-wrap{
+    padding: 0 60px;
+}
+.team-item { 
+    
+    float: left;
+    width: 33.33%;
+    
+    img {
+        width:  230px;
+        height: 230px;
+        margin-bottom: 13px;
+        border: 7px solid #fff;
+        @include border-radius(50%);
+    }
+
+    .title {
+        font-size: 16px;
+        margin-bottom: 7px;
+    }
+
+    p {
+        font: 14px/14px $ss-stack;
+        color: #777;
+    }
+}
+
+.social {
+    margin-top: 14px;
+
+    a {
+        background: url(../images/icons.png) no-repeat;
+        display: inline-block;
+        margin: 0 3px;
+        width:40px;
+        height:40px;
+        border:3px solid #222;
+        @include border-radius(50%);
+
+        &.ic-{
+
+            &tw {
+                background-position: -3px -2px;
+                &:hover{
+                    background-color: #00aced;
+                    background-position: -3px -41px;
+                    border-color: #00aced;
+                }
+            }
+
+            &fb {
+                background-position: -43px -2px;
+                &:hover{
+                    background-color: #3b5998;
+                    background-position: -44px -42px;
+                    border-color: #3b5998;
+                }
+            }
+
+            &pn {
+                background-position: -83px -3px;
+                &:hover{
+                    background-color: #cb2028;
+                    background-position: -83px -43px;
+                    border-color: #cb2028;
+                }
+            }
+
+            &gg {
+                background-position: -122px -2px;
+                &:hover{
+                    background-color: #d95232;
+                    background-position: -123px -41px;
+                    border-color: #d95232;
+                }
+            }
+        }
+    }
+}
+
+.team-text {
+    line-height: 24px;
+    margin-top: 43px;
+}
+
+.logos  {
+    padding: 60px 0;
+    text-align: center;
+    a {
+        display: inline-block;
+        margin-right: 40px;
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+
+    img {
+        vertical-align: middle;
+    }
+}
+
+.contact {
+    background: #222 url("../images/map.png") no-repeat right bottom;
+    h2.title {
+        color: #fff;
+        margin-bottom: 15px;
+    }
+}
+
+.fields {
+
+    margin-top: 74px;
+
+    .right, .left {
+        width: 48.5%;
+    }
+
+    input[type="text"], textarea {
+        width: 100%;
+        margin-bottom: 30px;
+        background-color: #FFF;
+        @include border-radius(4px);
+        -webkit-box-shadow: none;
+        box-shadow: none;
+        padding: 15px 20px;
+        font: bold 14px/14px $ss-stack; 
+
+        
+    }
+
+    input[type="text"] {
+        border: 1px solid #ccc;
+        height: 50px;
+    }
+
+    textarea {
+        border-top:     1px solid #cfcfcf;
+        border-right:   1px solid #a4a4a4;
+        border-bottom:  1px solid #aaa; 
+        border-left:    1px solid #ccc;
+        height: 210px;
+        resize: none;
+    }
+}
+::-webkit-input-placeholder{text-transform: uppercase;}
+::-moz-placeholder{text-transform: uppercase;}
+:-ms-input-placeholder{text-transform: uppercase;}
+
+.footer {
+    .container {
+        padding: 20px 0 30px 0;
+       
+    }
+    .copyright {
+        font: 13px $ss-stack;
+        color: #555;
+        margin-top: 14px;
+    }
+    .social {
+        width: 196px;
+        margin: 0 auto;
+
+        a {
+
+            background-color: #222;
+            &.ic-{
+
+                &tw {
+                    background-position: -3px -41px;
+                }
+
+                &fb {
+                    background-position: -44px -42px;
+                }
+
+                &pn {
+                     background-position: -83px -43px;
+                }
+
+                &gg {
+                    background-position: -123px -41px;
+                }
+            }
+        }
+    }
+}
+
