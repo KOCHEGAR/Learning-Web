@@ -87,12 +87,6 @@ a, a:hover {
 			vertical-align: top;
 			font-size: 16px;/* и переопределяем шрифт. и радуемся что пробелов нет*/
 			line-height: 20px;
-			+ li{
-			//	margin-left: 40px;
-			}
-			&:first-child{
-			//	margin-left: 20px;
-			}
 		}
 	}
 }
@@ -105,6 +99,7 @@ a, a:hover {
 	.login{
 		position: relative;
 		display: inline-block;
+		vertical-align: top;
 		color: #fff;
 		font-size: 16px;
 		padding: 25px 22px 25px 51px;
@@ -118,7 +113,7 @@ a, a:hover {
 			top: 28px;left:22px;
 			width: 18px;
 			height: 16px;
-			background: url(../img/temp/login.png);
+			background: transparent url(../img/temp/login.png);
 			opacity: 0.35;
 		}
 	}
@@ -131,6 +126,7 @@ a, a:hover {
 	height: 204px;
 	margin: 0 auto;
 	margin-bottom: 25px;
+	img{width: 368px;height: 204px;}
 }
 
 .features{
@@ -140,6 +136,30 @@ a, a:hover {
 	&-item{
 		float: left;
 		width: 300px;
+		outline: 1px solid yellowgreen;
+		text-align: center;
+		p{
+			margin: 0 10px;
+		}
+	}
+
+	&-name{
+		position: relative;
+		display: block;
+		font-size: 30px;
+		line-height: 42px;
+		padding-bottom: 35px;
+		margin-bottom: 30px;
+		&::after{ /*делаем ромбики*/
+			content: "";
+			position: absolute;
+			bottom: 0; left: 50%;
+			margin-left: -10px;
+			width: 20px;
+			height: 20px;
+			background: #fff;
+			transform: rotate(45deg);
+		}
 	}
 }
 
@@ -147,7 +167,19 @@ a, a:hover {
 	&content{
 		padding: 50px 80px;
 		margin-bottom: 60px;
-		background: gray;
+		color: #000;
+		background: url(../img/index-content-shadow.png) no-repeat center,
+								 #f8f5f2 url(../img/pattern-white.jpg);
+
+		p{margin: 0;margin-bottom: 25px;}
+		
+		h2{
+			font-size: 30px;
+			line-height: 42px;
+			margin: 0;
+			margin-bottom: 25px;
+		}
+
 		&-left{
 			float: left;
 			width: 380px;
@@ -156,8 +188,96 @@ a, a:hover {
 			float: right;
 			width: 300px;
 		}
+		.news-preview{
+			margin: 0;
+			padding: 0;
+			padding-right: 35px;
+			list-style: none;
+
+			p{margin-bottom: 0;}
+			li{margin-bottom: 23px;}
+			time{text-transform: none; font-weight: normal;}
+		}
 	}
 }
+
+.btn{
+	/*тег button по дефолту не наследует некоторые стили START*/
+	display: inline-block;
+	vertical-align: top;
+	padding: 10px 33px;
+	text-transform: uppercase;
+	font: bold 14px/24px $ptsans;
+	/*тег button по дефолту не наследует некоторые стили END*/
+	color: #fff;
+	background-color: #000;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	+ .btn{margin-left: 16px;}
+	/*дальновидный подход. прописываем состояния кнопки*/
+	&:hover, &:active{/*даём одинаковый цвет при наведении и клике*/
+		background-color: #663d15;
+	}
+	&.disabled, &:disabled{/*если кнопка заблокирована,то стилизуем её так...*/
+		cursor: default;
+		opacity: 0.5;
+		&:hover{background-color: #000;}
+	}
+}
+
+.gallery{
+	position: relative;
+	height: 258px;
+
+	&-content{
+		margin: 0;
+		height: 164px;
+		background-color: #ccc;
+		-webkit-box-sizing: content-box;
+		-moz-box-sizing: content-box;
+		box-sizing: content-box;
+		border: 7px solid #fff;
+		img{width: 286px; height: 164px;}
+	}
+	
+	.btn{
+		position: absolute;
+		margin: 0;
+		bottom: 0;
+		width: 140px;
+	}
+
+	&-prev{left: 0;}
+	&-next{right: 0;}
+}
+
+.contact-info-buttons{
+	padding-top: 3px;
+}
+
+.appointment-form {
+	
+	.btn{width: 100%; clear: both;}
+	
+	input{
+		background: #f9f6f3;
+		width: 140px;
+		margin-right: 20px;
+		margin-bottom: 20px;
+		float: left;
+		outline: none;
+		font: inherit;
+		color: inherit;
+		text-transform: inherit;
+		border: 2px solid #000101;
+		padding: 7px 15px;
+		&:focus{border-color: #663d15;}
+		&:nth-child(2n){margin-right: 0;}
+	}
+}
+
+
 /*main-container -end*/ 
 
 /*footer -start*/

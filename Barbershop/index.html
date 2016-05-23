@@ -36,11 +36,11 @@
 		<section class="features clearfix">
 			<div class="features-item">
 				<b class="features-name">Быстро</b>
-				<p>Мы делаем свою работу быстро! Два часа пролетят незаметно и вы - счастливый обладатель стильной стрижки-минутки!</p>
+				<p>Мы делаем свою работу быстро! Два часа пролетят незаметно и вы  счастливый обладатель стильной стрижки-минутки!</p>
 			</div>
 			<div class="features-item">
 				<b class="features-name">круто</b>
-				<p>Забудьте, как вы стриглись раньше. Мы сделаем из вас звезду футбола или кино! Во всяком случае внешне</p>
+				<p>Забудьте, как вы стриглись раньше. Мы сделаем из вас звезду футбола или кино! Во всяком случае внешне.</p>
 			</div>
 			<div class="features-item">
 				<b class="features-name">Дорого</b>
@@ -50,7 +50,7 @@
 		<div class="index-content clearfix">
 			<div class="index-content-left">
 				<h2 class="index-content-title">Новости</h2>
-				<ul>
+				<ul class="news-preview">
 					<li><p>Нам наконец завезли ягермайстер! теперь вы можете пропустить стаканчик во 			время стрижки</p>
 					<time datetime="2015-09-25">25 сентября</time></li>
 					<li><p>В нашей команде пополнение, борис «бритва» стригунец, обладетель множества 			титулов и наград пополнил наши стройные ряды</p>
@@ -64,7 +64,7 @@
 					<figure class="gallery-content">
 						<img src="img/photo-1.jpg" width="286" height="164" alt="">
 					</figure>
-					<button class="btn gallery-prev">Назад</button>
+					<button disabled class="btn gallery-prev">Назад</button>
 					<button class="btn gallery-next">Вперед</button>
 				</div>
 			</div>
@@ -83,20 +83,23 @@
 					Пн - Пт: С 10:00 до 22:00<br>
 					Сб - Вс: С 10:00 до 19:00
 				</p>
-				<a class="btn" href="#">Как проехать</a>
-				<a class="btn" href="#">Обратная связь</a>
+				<div class="contact-info-buttons">
+					<a class="btn" href="#">Как проехать</a>
+					<a class="btn" href="#">Обратная связь</a>
+				</div>
+				
 			</div>
 			<div class="index-content-right">
 				<h2 class="index-content-title">Записаться</h2>
 				<p>
 					Укажите желаемую дату и время и мы свяжемся с вами для подтверждения брони
 				</p>
-				<form action="https://echo.htmlacademy.ru" method="post">
+				<form class="appointment-form clearfix" action="https://echo.htmlacademy.ru" method="post">
 					<input type="text" name="date" value="" placeholder="Дата">
 					<input type="text" name="time" value="" placeholder="Время">
 					<input type="text" name="name" value="" placeholder="Ваше имя">
 					<input type="tel" name="phone" value="" placeholder="Телефон">
-					<button type="submit">Отправить</button>
+					<button type="submit" class="btn">Отправить</button>
 				</form>
 			</div>
 		</div><!-- index content END -->
