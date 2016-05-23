@@ -1,64 +1,9 @@
+@charset "UTF-8";
 /* Welcome to Compass.
  * In this file you should write your main styles. (or centralize your imports)
  * Import this file using the following HTML or equivalent:
  * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
 @import url(https://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700&subset=latin,cyrillic);
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed,
-figure, figcaption, footer, header, hgroup,
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font: inherit;
-  font-size: 100%;
-  vertical-align: baseline;
-}
-
-html {
-  line-height: 1;
-}
-
-ol, ul {
-  list-style: none;
-}
-
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
-}
-
-caption, th, td {
-  text-align: left;
-  font-weight: normal;
-  vertical-align: middle;
-}
-
-q, blockquote {
-  quotes: none;
-}
-q:before, q:after, blockquote:before, blockquote:after {
-  content: "";
-  content: none;
-}
-
-a img {
-  border: none;
-}
-
-article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
-  display: block;
-}
-
 html {
   height: 100%;
 }
@@ -66,8 +11,11 @@ html {
 body {
   height: 100%;
   font: bold 14px/24px "PT Sans Narrow", Arial, Tahoma, sans-serif;
-  color: #000;
-  min-width: 980px;
+  color: #fff;
+  min-width: 960px;
+  background: #000;
+  text-transform: uppercase;
+  background: #000 url(../img/bg.jpg) no-repeat center top;
 }
 
 * {
@@ -78,7 +26,7 @@ body {
 
 a, a:hover {
   text-decoration: none;
-  color: #000;
+  color: #fff;
 }
 
 .clearfix:before, .clearfix:after {
@@ -100,6 +48,126 @@ a, a:hover {
 
 .container {
   margin: 0 auto;
-  max-width: 980px;
+  max-width: 960px;
   padding: 0 10px;
 }
+
+/*main-header -start*/
+.main-header {
+  margin-bottom: 60px;
+  background: #000;
+  font-size: 16px;
+  color: #fff;
+}
+.main-nav {
+  float: left;
+  width: 780px;
+}
+.main-nav ul {
+  margin: 0;
+  padding: 0;
+  font-size: 0;
+  /*это нужно чтобы убрать пробелы у инлайн-блочных элементов*/
+  list-style: none;
+}
+.main-nav a {
+  padding: 25px 20px;
+  display: block;
+}
+.main-nav a:hover {
+  background: #242424;
+}
+.main-nav li {
+  display: inline-block;
+  vertical-align: top;
+  font-size: 16px;
+  /* и переопределяем шрифт. и радуемся что пробелов нет*/
+  line-height: 20px;
+}
+
+.user-block {
+  float: right;
+  max-width: 140px;
+  line-height: 20px;
+}
+.user-block .login {
+  position: relative;
+  display: inline-block;
+  color: #fff;
+  font-size: 16px;
+  padding: 25px 22px 25px 51px;
+}
+.user-block .login:hover {
+  background: #242424;
+}
+.user-block .login:hover::before {
+  opacity: 1;
+}
+.user-block .login::before {
+  content: "";
+  position: absolute;
+  top: 28px;
+  left: 22px;
+  width: 18px;
+  height: 16px;
+  background: url(../img/temp/login.png);
+  opacity: 0.35;
+}
+
+/*main-header -end*/
+/*main-container -start*/
+.index-logo {
+  width: 386px;
+  height: 204px;
+  margin: 0 auto;
+  margin-bottom: 25px;
+}
+
+.features {
+  margin-bottom: 85px;
+}
+.features .features-item + .features-item {
+  margin-left: 20px;
+}
+.features-item {
+  float: left;
+  width: 300px;
+}
+
+.index-content {
+  padding: 50px 80px;
+  margin-bottom: 60px;
+  background: gray;
+}
+.index-content-left {
+  float: left;
+  width: 380px;
+}
+.index-content-right {
+  float: right;
+  width: 300px;
+}
+
+/*main-container -end*/
+/*footer -start*/
+.main-footer {
+  margin-top: 65px;
+  padding-top: 60px;
+  padding-bottom: 40px;
+}
+
+.footer-contacts {
+  width: 320px;
+  float: left;
+  margin-right: 60px;
+}
+.footer-social {
+  width: 180px;
+  float: left;
+}
+.footer-copyright {
+  width: 180px;
+  float: right;
+}
+
+/*footer -end*/

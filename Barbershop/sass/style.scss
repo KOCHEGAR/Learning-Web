@@ -1,9 +1,9 @@
-/* Welcome to Compass.
+﻿/* Welcome to Compass.
  * In this file you should write your main styles. (or centralize your imports)
  * Import this file using the following HTML or equivalent:
  * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
 
-@import "compass/reset";
+//@import "compass/reset";
 
 
 @import url(https://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700&subset=latin,cyrillic);
@@ -16,9 +16,12 @@ html {
 body {
   height: 100%;
   font: bold 14px/24px  $ptsans;
-  color: #000;
-  min-width: 980px;
- // background: #F88 url(../img/bg.jpg) no-repeat center top;
+  color: #fff;
+  min-width: 960px;
+  background: #000;
+  text-transform: uppercase;
+
+  background: #000 url(../img/bg.jpg) no-repeat center top;
   //background-size: cover;
 }
 
@@ -30,7 +33,7 @@ body {
 
 a, a:hover {
   text-decoration: none;
-  color: #000;
+  color: #fff;
 }
 
 .clearfix:before, .clearfix:after {
@@ -52,6 +55,134 @@ a, a:hover {
 
 .container{
 	margin: 0 auto;
-	max-width: 980px;
+	max-width: 960px;
 	padding: 0 10px;
 }
+
+/*main-header -start*/
+.main-{
+	&header{
+		margin-bottom: 60px;
+		background: #000;
+		font-size: 16px;
+		color: #fff;
+	}
+	&nav{
+		float: left;
+		width: 780px;
+		ul{
+			margin: 0;
+			padding: 0;
+			font-size: 0; /*это нужно чтобы убрать пробелы у инлайн-блочных элементов*/
+			list-style: none;
+		}
+		a{
+			padding: 25px 20px;
+			display: block;
+
+			&:hover{background: #242424;}
+		}
+		li{
+			display: inline-block;
+			vertical-align: top;
+			font-size: 16px;/* и переопределяем шрифт. и радуемся что пробелов нет*/
+			line-height: 20px;
+			+ li{
+			//	margin-left: 40px;
+			}
+			&:first-child{
+			//	margin-left: 20px;
+			}
+		}
+	}
+}
+
+.user-block{
+	float: right;
+	max-width: 140px;
+	line-height: 20px;
+
+	.login{
+		position: relative;
+		display: inline-block;
+		color: #fff;
+		font-size: 16px;
+		padding: 25px 22px 25px 51px;
+		&:hover{
+			background: #242424;
+			&::before{opacity: 1;}
+		}
+		&::before{
+			content: "";
+			position: absolute;
+			top: 28px;left:22px;
+			width: 18px;
+			height: 16px;
+			background: url(../img/temp/login.png);
+			opacity: 0.35;
+		}
+	}
+}
+/*main-header -end*/ 
+
+/*main-container -start*/
+.index-logo{
+	width: 386px;
+	height: 204px;
+	margin: 0 auto;
+	margin-bottom: 25px;
+}
+
+.features{
+	margin-bottom: 85px;
+
+	& &-item + &-item{margin-left: 20px;}
+	&-item{
+		float: left;
+		width: 300px;
+	}
+}
+
+.index-{
+	&content{
+		padding: 50px 80px;
+		margin-bottom: 60px;
+		background: gray;
+		&-left{
+			float: left;
+			width: 380px;
+		}
+		&-right{
+			float: right;
+			width: 300px;
+		}
+	}
+}
+/*main-container -end*/ 
+
+/*footer -start*/
+.main-footer{
+	margin-top: 65px;
+	padding-top: 60px;
+	padding-bottom: 40px;
+}
+
+.footer-{
+	
+	&contacts{
+		width: 320px;
+		float: left;
+		margin-right: 60px;
+	}
+
+	&social{
+		width: 180px;
+		float: left;
+	}
+
+	&copyright{
+		width: 180px;
+		float: right;
+	}
+}
+/*footer -end*/ 
