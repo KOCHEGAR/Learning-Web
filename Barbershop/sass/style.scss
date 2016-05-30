@@ -13,16 +13,6 @@ html {
   height: 100%;
 }
 
-body {
-  height: 100%;
-  font: bold 14px/24px  $ptsans;
-  color: #fff;
-  min-width: 960px;
-  text-transform: uppercase;
-  background: #000 url(../img/bg.jpg) no-repeat center top;
- 
-}
-
 * {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -51,12 +41,24 @@ a, a:hover {
   float: right;
 }
 
+/*INDEX.HTML -START*/
+body {
+  height: 100%;
+  font: bold 14px/24px  $ptsans;
+  color: #fff;
+  min-width: 960px;
+  text-transform: uppercase;
+  background: #000 url(../img/bg.jpg) no-repeat center top;
+ 
+}
+
 .container{
 	margin: 0 auto;
 	max-width: 960px;
 	padding: 0 10px;
 }
-/*	INDEX.HTML -START!!!  */
+
+
 /*main-header -start*/
 .main-{
 	&header{
@@ -68,10 +70,29 @@ a, a:hover {
 	&nav{
 		float: left;
 		width: 780px;
-		.active{
+		.active{/*делаем отображение активного элемента*/
 			position: relative;
-			
+
+			span{
+				/*второе состояние ссылки главной навигации!!!
+				  То,когда пункт меню является активным и
+				  когда ссылка в пункте навигации отсутствует.
+				  Тем самым выделяя что мы находимся именно на 
+				  странице,выделенной в пункте.
+				  С помощью JavaScriptа можно это реализовать*/
+				display: block;
+				padding: 25px 20px;
+			}
+
+			a:hover{
+				/*третье состояние ссылки главной навигации!!!
+				 То, когда пункт меню является активным 
+				 и ссылка являеется кликабельной*/
+				background: none;
+			}
+
 			&:after{
+				/*выделяем активный пункт главной навигации*/
 				content: "";
 				position: absolute;
 				right: 20px;
@@ -91,7 +112,11 @@ a, a:hover {
 		a{
 			padding: 25px 20px;
 			display: block;
-			&:hover{background: #242424;}
+			&:hover{
+				/*первое состояние ссылки в главной навигации!!!
+				 То,когда она не активна*/
+				background: #242424;
+			}
 		}
 		li{
 			display: inline-block;
@@ -258,12 +283,11 @@ a, a:hover {
 	height: 258px;
 
 	&-content{
+
 		margin: 0;
-		height: 164px;
+		height: 178px;
 		background-color: #ccc;
-		-webkit-box-sizing: content-box;
-		-moz-box-sizing: content-box;
-		box-sizing: content-box;
+		
 		border: 7px solid #fff;
 		img{width: 286px; height: 164px;}
 	}
@@ -313,6 +337,7 @@ a, a:hover {
 	padding-top: 58px;
 	padding-bottom: 40px;
 	background: #232323 url(../img/pattern-black.jpg);
+	color: #fff;
 	a{color: #fff;}
 	p{
 		margin: 0;
@@ -390,5 +415,135 @@ a, a:hover {
 	}
 }
 /*footer -end*/ 
-/*	INDEX.HTML -END!!!  */
+/*INDEX.HTML -END*/
 
+/*CТИЛИ ВНУТРЕННИХ СТРАНИЦ*/ /*PRICE-LIST.HTML -START*/
+.inner-page{
+	color: #000;
+	background: #f8f5f2 url(../img/pattern-white.jpg);
+	a{color: inherit;}
+
+	.main-header{
+		margin-bottom: 52px;
+	}
+
+	&-title{
+		margin-bottom: 55px;
+		h1{
+			margin: 0;
+			padding: 0;
+			margin-bottom: 25px;
+			font-size: 30px;
+			line-height: 42px;
+		}
+	}
+}
+
+.breadcrumbs{/*постраничная навигация*/
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	.current{
+		color: #aba9a7;
+		padding-right: 0;
+		&::after{
+			display: none;
+		}
+	}
+	a{
+		color: #000;
+		text-decoration: none;
+		&:hover{
+			text-decoration: underline;
+		}
+	}
+	li{
+		position: relative;
+		display: inline;
+		padding-right: 40px;
+		&::after{
+			content: "";
+			position: absolute;
+			width: 7px;
+			height: 7px;
+			top: 6px;
+			right: 15px;
+			background-color: #000;
+			transform: rotate(45deg);
+		}
+	}
+}
+
+.inner-content{
+	margin-bottom: 85px;
+	h2{
+		margin-top: 60px;
+		margin-bottom: 30px;
+		font-size: 24px;
+		line-height: 30px;
+	}
+	p{
+		margin: 14px 0;
+	}
+	table{
+		border-collapse: collapse;
+	}
+	td{
+		padding: 10px 15px;
+		border: 2px solid #000;
+	}
+}
+
+.big-heading{
+	margin-top: 55px;
+	margin-bottom: 65px;
+	text-align: center;
+	h2{
+		position: relative;
+		z-index: 2;
+		display: inline;
+		background: #f8f5f2 url(../img/pattern-white.jpg);
+		margin: 0;
+		padding: 0 25px;
+		font-size: 48px;
+		line-height: 48px;
+		text-align: center;
+	}
+	&::after{
+		content: "";
+		position: relative;
+		z-index: 1;
+		display: block;
+		top: -25px; 
+		border-bottom: 2px solid #000;
+	}
+}
+
+.custom-list-1{
+	margin: 14px 0;
+	padding: 0;
+	list-style: none;
+	li{
+		position: relative;
+		padding-left: 20px;
+		margin-bottom: 15px;
+		&::before{
+			content: "";
+			position: absolute;
+			top: 8px;
+			left: 0;
+			width: 7px;
+			height: 7px;
+			background-color: #000;
+			transform: rotate(45deg);
+		}
+	}
+}
+
+.prices-table {
+	width: 100%;
+	td{
+		width: 50%;
+		&:last-child{text-align: center;}/*временный вариант*/
+	}
+}
