@@ -331,6 +331,176 @@ body {
 
 /*main-container -end*/ 
 
+/*modal-content -start*/
+.modal-content{
+	display: none;
+	
+	position: fixed;
+	top: 120px;
+	left: 50%;
+	margin-left: -230px;
+
+	width: 460px;
+	padding: 50px 80px;
+	color: #000;
+	background: #f8f5f2 url(../img/pattern-white.jpg);
+	box-shadow: 0 30px 50px rgba(0, 0, 0, 0.75);
+	z-index: 30;
+	&-close{/*делаем крестик*/
+		position: absolute;
+		top: 0;
+		right: -34px;
+		width: 20px;
+		height: 20px;
+		font-size: 0;
+		background: transparent;
+		border: none;
+		outline: 0;
+		cursor: pointer;
+		&::before, &::after{
+			content: "";
+			position: absolute;
+			
+			top: 10px;
+			right: 2px;
+			width: 19px;
+			height: 3px;
+
+			background-color: #d0d0d0;
+			-webkit-border-radius: 1px;
+			-moz-border-radius: 1px;
+			border-radius: 1px;
+
+		}
+
+		&::before{transform: rotate(45deg);}
+		&::after{transform: rotate(-45deg);/*закончили крестик*/}
+	}
+
+	h2{
+		margin: 0;
+		margin-bottom: 20px;
+
+		font-size: 30px;
+		line-height: 42px;
+	}
+	
+
+	p{
+		margin: 0;
+		margin-bottom: 14px;
+	}
+}
+
+.login-form{
+	input[type="text"], input[type="password"]{
+
+		width: 300px;
+		margin: 0;
+		margin-bottom: 10px;
+		padding: 10px 20px;
+		padding-right: 40px;
+		
+		font: bold 14px/24px $ptsans;
+		color: #000;
+		text-transform: uppercase;
+		background-color: #f9f6f3;
+		border: 2px solid #000;
+		outline: none;
+	}
+
+	input:focus{border-color: #663d15;}
+
+	input.icon-user{
+		background: url(../img/sprites.png) no-repeat;
+		background-position: 100% -232px;
+	}
+	input.icon-password{
+		background: url(../img/sprites.png) no-repeat;
+		background-position: 100% -279px;
+	}
+	
+	input[type="checkbox"]{
+		display: none;
+	}
+
+	.login-checkbox{
+		position: relative;
+		padding-left: 30px;
+		cursor: pointer;
+
+		&:hover{color: #663d15;}
+		input[type="checkbox"] + .checkbox-indicator{
+			position: absolute;
+			top: 0px;left: 0;
+			width: 20px;
+			height: 20px;
+			border: 2px solid #000;
+		}
+
+		input[type="checkbox"]:checked + .checkbox-indicator::before,
+		input[type="checkbox"]:checked + .checkbox-indicator::after{
+			content: "";
+			position: absolute;
+			top: 7px;
+			right: 0px;
+			width: 16px;
+			height: 2px;
+			background-color: #000;
+		} 
+		input[type="checkbox"]:checked + .checkbox-indicator::before{
+			transform: rotate(45deg);
+		}
+		input[type="checkbox"]:checked + .checkbox-indicator::after{
+			transform: rotate(-45deg);
+		}
+	}
+/**/
+	.restore{
+		float: right;
+		color: #000;
+		text-decoration: underline;
+	}
+
+	.btn{
+		width: 100%;
+		margin-top: 15px;
+	}
+}
+/*modal-content -end*/ 
+
+/*modal-content-map -start*/
+.modal-content-map{
+	display: none;
+
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	margin-left: -383px;
+	margin-top: -280px;
+	width: 766px;
+	height: 560px;
+	background: #e9e5dc url(../img/map.jpg);
+	border: 7px solid #fff;
+	box-shadow: 0 30px 50px rgba(0, 0, 0, 0.75);
+	z-index: 30;
+}
+/*modal-content-map -end*/ 
+
+/*тёмный оверлей*/
+.modal-overlay{
+	display: none;
+
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0,0,0, 0.5);
+	z-index: 20;
+}
+/*тёмный оверлей*/
+
 /*footer -start*/
 .main-footer{
 	margin-top: 65px;
@@ -390,7 +560,7 @@ body {
 
 		width: 43px;
 		height: 43px;
-		background: #000 url(../img/social-sprite.png) no-repeat 15px 10px;
+		background: #000 url(../img/sprites.png) no-repeat 15px 10px;
 		font-size: 0;
 		
 		transition: background-position 0.3s, background-color 0.3s;
@@ -519,6 +689,7 @@ body {
 	}
 }
 
+
 .custom-list-1{
 	margin: 14px 0;
 	padding: 0;
@@ -544,6 +715,28 @@ body {
 	width: 100%;
 	td{
 		width: 50%;
-		&:last-child{text-align: center;}/*временный вариант*/
+		&:last-child{text-align: center;}/*так пойдет, только пока в таблице 2 колонки*/
 	}
 }
+
+.inner-{
+	&columns{
+		margin: 60px 0;
+		h2{margin-top: 0;}
+		//.about-us{margin-top: 0;}
+	}
+
+	&column-left, &column-right{
+		width: 460px;
+		& *:first-child{margin-top: 0;}
+
+		& *:last-child{margin-bottom: 0;}
+	}
+	&column{
+		&-left{float: left;}
+		&-right{float: right;}
+	}
+}
+
+.short-text{padding-right: 80px;}
+/*PRICE-LIST.HTML -END*/
