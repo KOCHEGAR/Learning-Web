@@ -73,7 +73,7 @@ body {
     когда ссылка в пункте навигации отсутствует.
     Тем самым выделяя что мы находимся именно на 
     странице,выделенной в пункте.
-    С помощью JavaScriptа можно это реализовать*/
+    */
   display: block;
   padding: 25px 20px;
 }
@@ -158,7 +158,8 @@ body {
   left: 22px;
   width: 18px;
   height: 16px;
-  background: transparent url(../img/temp/login.png);
+  background: transparent url(../img/sprites.png) no-repeat;
+  background-position: 0 -340px;
   opacity: 0.35;
 }
 
@@ -265,6 +266,8 @@ body {
   outline: none;
   cursor: pointer;
   /*дальновидный подход. прописываем состояния кнопки*/
+  -webkit-transition: color 0.3s, background-color 0.3s;
+  -moz-transition: color 0.3s, background-color 0.3s;
   transition: color 0.3s, background-color 0.3s;
   /*небольшая анимация*/
 }
@@ -328,7 +331,6 @@ body {
   outline: none;
   font: inherit;
   color: inherit;
-  text-transform: inherit;
   border: 2px solid #000101;
   padding: 7px 15px;
 }
@@ -397,18 +399,31 @@ body {
   margin-bottom: 14px;
 }
 
-.login-form {
-  /**/
+input[type="text"]::-webkit-input-placeholder, input[type="tel"]::-webkit-input-placeholder, input[type="password"]::-webkit-input-placeholder {
+  text-transform: uppercase;
+  color: #000;
 }
+input[type="text"]::-moz-placeholder, input[type="tel"]::-moz-placeholder, input[type="password"]::-moz-placeholder {
+  text-transform: uppercase;
+  color: #000;
+}
+input[type="text"]:-moz-placeholder, input[type="tel"]:-moz-placeholder, input[type="password"]:-moz-placeholder {
+  text-transform: uppercase;
+  color: #000;
+}
+input[type="text"]:-ms-input-placeholder, input[type="tel"]:-ms-input-placeholder, input[type="password"]:-ms-input-placeholder {
+  text-transform: uppercase;
+  color: #000;
+}
+
 .login-form input[type="text"], .login-form input[type="password"] {
   width: 300px;
   margin: 0;
   margin-bottom: 10px;
   padding: 10px 20px;
   padding-right: 40px;
-  font: bold 14px/24px "PT Sans Narrow", Arial, Tahoma, sans-serif;
+  font: bold 14px/18px "PT Sans Narrow", Arial, Tahoma, sans-serif;
   color: #000;
-  text-transform: uppercase;
   background-color: #f9f6f3;
   border: 2px solid #000;
   outline: none;
@@ -418,13 +433,14 @@ body {
 }
 .login-form input.icon-user {
   background: url(../img/sprites.png) no-repeat;
-  background-position: 100% -232px;
+  background-position: 100% -235px;
 }
 .login-form input.icon-password {
   background: url(../img/sprites.png) no-repeat;
-  background-position: 100% -279px;
+  background-position: 100% -282px;
 }
 .login-form input[type="checkbox"] {
+  /*скрываем стандартный чекбокс для последующей стилизации кастомного чекбокса*/
   display: none;
 }
 .login-form .login-checkbox {
@@ -478,8 +494,8 @@ body {
   left: 50%;
   margin-left: -383px;
   margin-top: -280px;
-  width: 766px;
-  height: 560px;
+  min-width: 766px;
+  min-height: 560px;
   background: #e9e5dc url(../img/map.jpg);
   border: 7px solid #fff;
   box-shadow: 0 30px 50px rgba(0, 0, 0, 0.75);
@@ -497,6 +513,11 @@ body {
   height: 100%;
   background: rgba(0, 0, 0, 0.5);
   z-index: 20;
+  /*важно правильно выставлять зет индекс оверлея для всплывающих окон*/
+}
+
+.modal-overlay-show {
+  display: block;
 }
 
 /*тёмный оверлей*/
@@ -555,6 +576,8 @@ body {
   height: 43px;
   background: #000 url(../img/sprites.png) no-repeat 15px 10px;
   font-size: 0;
+  -webkit-transition: background-position 0.3s, background-color 0.3s;
+  -moz-transition: background-position 0.3s, background-color 0.3s;
   transition: background-position 0.3s, background-color 0.3s;
 }
 .social-btn + .social-btn {
@@ -595,7 +618,7 @@ body {
   color: inherit;
 }
 .inner-page .main-header {
-  margin-bottom: 52px;
+  margin-bottom: 43px;
 }
 .inner-page-title {
   margin-bottom: 55px;
@@ -603,7 +626,7 @@ body {
 .inner-page-title h1 {
   margin: 0;
   padding: 0;
-  margin-bottom: 25px;
+  margin-bottom: 16px;
   font-size: 30px;
   line-height: 42px;
 }
@@ -748,3 +771,255 @@ body {
 }
 
 /*PRICE-LIST.HTML -END*/
+/*SHOP -START*/
+.sorting-items {
+  float: left;
+  width: 220px;
+}
+.sorting-items h2 {
+  margin: 0;
+  padding: 0;
+  margin-bottom: 30px;
+  font-size: 24px;
+  line-height: 30px;
+}
+.sorting-items label {
+  display: block;
+}
+.sorting-items .sortable-item + .sortable-item {
+  margin-top: 20px;
+}
+
+.manufacturers p, .product-group p {
+  margin: 0;
+  padding: 0;
+}
+.manufacturers .sortable-item, .product-group .sortable-item {
+  text-align: left;
+  font-size: 14px;
+  line-height: 18px;
+  position: relative;
+  padding-left: 44px;
+  cursor: pointer;
+}
+
+.manufacturers {
+  margin-bottom: 48px;
+}
+.manufacturers input[type="checkbox"] {
+  display: none;
+}
+.manufacturers .sortable-item input[type="checkbox"] + .checkbox-indicator {
+  position: absolute;
+  top: 0px;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #000;
+}
+.manufacturers .sortable-item input[type="checkbox"]:checked + .checkbox-indicator::before,
+.manufacturers .sortable-item input[type="checkbox"]:checked + .checkbox-indicator::after {
+  content: "";
+  position: absolute;
+  top: 7px;
+  right: 0px;
+  width: 16px;
+  height: 2px;
+  background-color: #000;
+}
+.manufacturers .sortable-item input[type="checkbox"]:checked + .checkbox-indicator::before {
+  transform: rotate(45deg);
+}
+.manufacturers .sortable-item input[type="checkbox"]:checked + .checkbox-indicator::after {
+  transform: rotate(-45deg);
+}
+
+.product-group input[type="radio"] {
+  display: none;
+}
+.product-group input[type="radio"] + .radio-indicator {
+  position: absolute;
+  top: 0px;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #000;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+}
+.product-group input[type="radio"]:checked + .radio-indicator::before {
+  /*кастомный круглешок*/
+  content: "";
+  position: absolute;
+  top: 25%;
+  right: 4px;
+  width: 8px;
+  height: 8px;
+  background-color: #000;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+}
+
+.sortable-item input[type="radio"]:checked:disabled + .radio-indicator::before {
+  /*если выбрано и недоступно*/
+  background-color: #aeaba9;
+}
+.sortable-item input[type="radio"]:disabled + .radio-indicator {
+  border-color: #aeaba9;
+  /*есди недоступно*/
+}
+.sortable-item input[type="radio"]:disabled ~ p {
+  color: #aeaba9;
+}
+.sortable-item input[type="checkbox"]:checked:disabled + .checkbox-indicator::before,
+.sortable-item input[type="checkbox"]:checked:disabled + .checkbox-indicator::after {
+  /*если выбрано и недоступно*/
+  background-color: #aeaba9;
+}
+.sortable-item input[type="checkbox"]:disabled + .checkbox-indicator {
+  /*есди недоступно*/
+  border-color: #aeaba9;
+}
+.sortable-item input[type="checkbox"]:disabled ~ p {
+  color: #aeaba9;
+}
+
+.item-container {
+  margin-left: 240px;
+  font-size: 14px;
+  line-height: 18px;
+}
+.item-container figure, .item-container figcaption, .item-container figcaption p {
+  margin: 0;
+  padding: 0;
+}
+.item-container figure img {
+  display: block;
+}
+.item-container figcaption {
+  padding-left: 16px;
+  padding-right: 17px;
+  margin-top: 15px;
+}
+.item-container .item {
+  width: 220px;
+  height: 286px;
+  float: left;
+  color: #000;
+  background: #fff;
+  margin-right: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  -webkit-transition: box-shadow 0.3s;
+  -moz-transition: box-shadow 0.3s;
+  transition: box-shadow 0.3s;
+}
+.item-container .item:nth-child(3n) {
+  margin-right: 0;
+}
+.item-container .item:hover {
+  box-shadow: 3px 4px 25px rgba(0, 0, 0, 0.3);
+}
+.item-container .description {
+  text-transform: none;
+}
+.item-container .manufacturer {
+  text-transform: uppercase;
+}
+.item-container .price {
+  margin-left: 16px;
+  margin-right: 17px;
+  margin-top: 13px;
+  background: #e5e5e5;
+  line-height: 18px;
+  text-transform: uppercase;
+  text-align: center;
+}
+.item-container .price span {
+  margin-top: 12px;
+  display: inline-block;
+  vertical-align: top;
+}
+.item-container .price .btn {
+  float: right;
+  color: #fff;
+  padding: 11px 18px;
+  line-height: 18px;
+}
+
+.pagination {
+  margin: 0;
+  padding: 0;
+}
+.pagination li {
+  list-style: none;
+  display: inline-block;
+  vertical-align: top;
+  font-size: 14px;
+  line-height: 18px;
+  color: #fff;
+}
+.pagination li + li {
+  margin-left: 5px;
+}
+.pagination li a {
+  display: inline-block;
+  vertical-align: top;
+  padding: 12px 18px;
+  background: #000;
+  color: inherit;
+  -webkit-transition: background-color 0.3s;
+  -moz-transition: background-color 0.3s;
+  transition: background-color 0.3s;
+}
+.pagination li a:hover {
+  background: #663d15;
+}
+.pagination .active span {
+  display: inline-block;
+  vertical-align: top;
+  padding: 12px 18px;
+  background: #fff;
+  color: #000;
+}
+
+/*SHOP -END*/
+/*Animations*/
+.modal-content-show {
+  display: block;
+  animation: bounce 0.5s;
+}
+
+.modal-error {
+  animation: shake 0.6s;
+}
+
+@keyframes bounce {
+  0% {
+    transform: translateY(-200px);
+    opacity: 0;
+  }
+  70% {
+    transform: translateY(40px);
+  }
+  90% {
+    transform: translateY(-5px);
+  }
+  100% {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+}
+@keyframes shake {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  10%, 30%, 50%, 70%, 90% {
+    transform: translateX(10px);
+  }
+  20%, 40%, 60%, 80% {
+    transform: translateX(-10px);
+  }
+}
