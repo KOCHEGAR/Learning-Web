@@ -2,7 +2,7 @@
 		var link = document.querySelector(".login");
 		var overlay = document.querySelector(".modal-overlay");
 
-		var storage = localStorage.getItem("login");
+		//var storage = localStorage.getItem("login");
 		var btnClose = popup.querySelector(".modal-content-close");
 		var form = popup.querySelector(".login-form");
 		var login = popup.querySelector("[name=login]");
@@ -14,7 +14,7 @@
 				popup.classList.add("modal-error");
 			}
 			else {
-				localStorage.setItem("login", login.value);
+				//localStorage.setItem("login", login.value);
 			}
 		});
 
@@ -23,13 +23,7 @@
 			popup.classList.add("modal-content-show");
 			overlay.classList.add("modal-overlay-show");
 			
-			if (storage) {	
-				login.value = storage;
-				password.focus();
-			}
-			else{
-				login.focus();
-			}
+			
 		});
 
 		btnClose.addEventListener("click", function(event) {

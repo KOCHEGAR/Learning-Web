@@ -800,7 +800,6 @@ input[type="text"]:-ms-input-placeholder, input[type="tel"]:-ms-input-placeholde
   line-height: 18px;
   position: relative;
   padding-left: 44px;
-  cursor: pointer;
 }
 
 .manufacturers {
@@ -816,6 +815,7 @@ input[type="text"]:-ms-input-placeholder, input[type="tel"]:-ms-input-placeholde
   width: 20px;
   height: 20px;
   border: 2px solid #000;
+  cursor: pointer;
 }
 .manufacturers .sortable-item input[type="checkbox"]:checked + .checkbox-indicator::before,
 .manufacturers .sortable-item input[type="checkbox"]:checked + .checkbox-indicator::after {
@@ -847,6 +847,7 @@ input[type="text"]:-ms-input-placeholder, input[type="tel"]:-ms-input-placeholde
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;
   border-radius: 50%;
+  cursor: pointer;
 }
 .product-group input[type="radio"]:checked + .radio-indicator::before {
   /*кастомный круглешок*/
@@ -862,6 +863,12 @@ input[type="text"]:-ms-input-placeholder, input[type="tel"]:-ms-input-placeholde
   border-radius: 50%;
 }
 
+.sortable-item input[type="radio"] ~ p {
+  cursor: pointer;
+}
+.sortable-item input[type="radio"] ~ p:hover {
+  color: #663d15;
+}
 .sortable-item input[type="radio"]:checked:disabled + .radio-indicator::before {
   /*если выбрано и недоступно*/
   background-color: #aeaba9;
@@ -869,9 +876,17 @@ input[type="text"]:-ms-input-placeholder, input[type="tel"]:-ms-input-placeholde
 .sortable-item input[type="radio"]:disabled + .radio-indicator {
   border-color: #aeaba9;
   /*есди недоступно*/
+  cursor: default;
 }
 .sortable-item input[type="radio"]:disabled ~ p {
   color: #aeaba9;
+  cursor: default;
+}
+.sortable-item input[type="checkbox"] ~ p {
+  cursor: pointer;
+}
+.sortable-item input[type="checkbox"] ~ p:hover {
+  color: #663d15;
 }
 .sortable-item input[type="checkbox"]:checked:disabled + .checkbox-indicator::before,
 .sortable-item input[type="checkbox"]:checked:disabled + .checkbox-indicator::after {
@@ -881,9 +896,11 @@ input[type="text"]:-ms-input-placeholder, input[type="tel"]:-ms-input-placeholde
 .sortable-item input[type="checkbox"]:disabled + .checkbox-indicator {
   /*есди недоступно*/
   border-color: #aeaba9;
+  cursor: default;
 }
 .sortable-item input[type="checkbox"]:disabled ~ p {
   color: #aeaba9;
+  cursor: default;
 }
 
 .item-container {
@@ -949,6 +966,27 @@ input[type="text"]:-ms-input-placeholder, input[type="tel"]:-ms-input-placeholde
   line-height: 18px;
 }
 
+.price {
+  margin-left: 16px;
+  margin-right: 17px;
+  margin-top: 13px;
+  background: #e5e5e5;
+  line-height: 18px;
+  text-transform: uppercase;
+  text-align: center;
+}
+.price span {
+  margin-top: 12px;
+  display: inline-block;
+  vertical-align: top;
+}
+.price .btn {
+  float: right;
+  color: #fff;
+  padding: 11px 18px;
+  line-height: 18px;
+}
+
 .pagination {
   margin: 0;
   padding: 0;
@@ -986,6 +1024,45 @@ input[type="text"]:-ms-input-placeholder, input[type="tel"]:-ms-input-placeholde
 }
 
 /*SHOP -END*/
+/*ITEM-IN-THE-SHOP 	-START*/
+.concrete-item-imgs {
+  float: left;
+  width: 460px;
+  height: 668px;
+}
+.concrete-item-imgs figure {
+  margin: 0;
+  padding: 0;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+.concrete-item-imgs .big-img {
+  width: 460px;
+  height: 498px;
+  margin-bottom: 20px;
+}
+.concrete-item-imgs .small-img {
+  display: inline-block;
+  width: 140px;
+  height: 149px;
+  margin-right: 17px;
+}
+.concrete-item-imgs .small-img:last-child {
+  margin-right: 0;
+}
+.concrete-item-descr {
+  float: right;
+  width: 390px;
+}
+
+.metainf .has-in-stock {
+  float: left;
+}
+.metainf .articul {
+  color: #aeaeae;
+  float: right;
+}
+
+/*ITEM-IN-THE-SHOP 	-END*/
 /*Animations*/
 .modal-content-show {
   display: block;
@@ -996,30 +1073,106 @@ input[type="text"]:-ms-input-placeholder, input[type="tel"]:-ms-input-placeholde
   animation: shake 0.6s;
 }
 
-@keyframes bounce {
+@-webkit-keyframes bounce {
   0% {
-    transform: translateY(-200px);
-    opacity: 0;
+    -webkit-transform: translateY(-200px);
   }
   70% {
+    -webkit-transform: translateY(40px);
+  }
+  90% {
+    -webkit-transform: translateY(-5px);
+  }
+  100% {
+    -webkit-transform: translateY(0px);
+  }
+}
+@-moz-keyframes bounce {
+  0% {
+    -moz-transform: translateY(-200px);
+  }
+  70% {
+    -moz-transform: translateY(40px);
+  }
+  90% {
+    -moz-transform: translateY(-5px);
+  }
+  100% {
+    -moz-transform: translateY(0px);
+  }
+}
+@keyframes bounce {
+  0% {
+    -webkit-transform: translateY(-200px);
+    -moz-transform: translateY(-200px);
+    -ms-transform: translateY(-200px);
+    -o-transform: translateY(-200px);
+    transform: translateY(-200px);
+  }
+  70% {
+    -webkit-transform: translateY(40px);
+    -moz-transform: translateY(40px);
+    -ms-transform: translateY(40px);
+    -o-transform: translateY(40px);
     transform: translateY(40px);
   }
   90% {
+    -webkit-transform: translateY(-5px);
+    -moz-transform: translateY(-5px);
+    -ms-transform: translateY(-5px);
+    -o-transform: translateY(-5px);
     transform: translateY(-5px);
   }
   100% {
+    -webkit-transform: translateY(0px);
+    -moz-transform: translateY(0px);
+    -ms-transform: translateY(0px);
+    -o-transform: translateY(0px);
     transform: translateY(0px);
-    opacity: 1;
+  }
+}
+@-webkit-keyframes shake {
+  0%, 100% {
+    -webkit-transform: translateX(0);
+  }
+  10%, 30%, 50%, 70%, 90% {
+    -webkit-transform: translateX(10px);
+  }
+  20%, 40%, 60%, 80% {
+    -webkit-transform: translateX(-10px);
+  }
+}
+@-moz-keyframes shake {
+  0%, 100% {
+    -moz-transform: translateX(0);
+  }
+  10%, 30%, 50%, 70%, 90% {
+    -moz-transform: translateX(10px);
+  }
+  20%, 40%, 60%, 80% {
+    -moz-transform: translateX(-10px);
   }
 }
 @keyframes shake {
   0%, 100% {
+    -webkit-transform: translateX(0);
+    -moz-transform: translateX(0);
+    -ms-transform: translateX(0);
+    -o-transform: translateX(0);
     transform: translateX(0);
   }
   10%, 30%, 50%, 70%, 90% {
+    -webkit-transform: translateX(10px);
+    -moz-transform: translateX(10px);
+    -ms-transform: translateX(10px);
+    -o-transform: translateX(10px);
     transform: translateX(10px);
   }
   20%, 40%, 60%, 80% {
+    -webkit-transform: translateX(-10px);
+    -moz-transform: translateX(-10px);
+    -ms-transform: translateX(-10px);
+    -o-transform: translateX(-10px);
     transform: translateX(-10px);
   }
 }
